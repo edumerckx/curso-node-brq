@@ -1,0 +1,62 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'mongojs', '--save' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.37
+4 verbose node symlink /usr/bin/node
+5 warn package.json curso_brq@0.0.1 No repository field.
+6 warn package.json curso_brq@0.0.1 No README data
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'mongojs', null ]
+9 verbose cache add name=undefined spec="mongojs" args=["mongojs",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'mongojs',
+10 verbose parsed url   path: 'mongojs',
+10 verbose parsed url   href: 'mongojs' }
+11 silly lockFile 5bfdf85a-mongojs mongojs
+12 verbose lock mongojs /home/eduardo/.npm/5bfdf85a-mongojs.lock
+13 silly lockFile 5bfdf85a-mongojs mongojs
+14 silly lockFile 5bfdf85a-mongojs mongojs
+15 verbose addNamed [ 'mongojs', '' ]
+16 verbose addNamed [ null, '*' ]
+17 silly lockFile 9d373183-mongojs mongojs@
+18 verbose lock mongojs@ /home/eduardo/.npm/9d373183-mongojs.lock
+19 silly addNameRange { name: 'mongojs', range: '*', hasData: false }
+20 verbose request where is /mongojs
+21 verbose request registry https://registry.npmjs.org/
+22 verbose request id 60a77465fe0ca9f4
+23 verbose url raw /mongojs
+24 verbose url resolving [ 'https://registry.npmjs.org/', './mongojs' ]
+25 verbose url resolved https://registry.npmjs.org/mongojs
+26 verbose request where is https://registry.npmjs.org/mongojs
+27 info trying registry request attempt 1 at 20:25:48
+28 http GET https://registry.npmjs.org/mongojs
+29 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=connect ETIMEDOUT
+30 info trying registry request attempt 2 at 20:28:05
+31 http GET https://registry.npmjs.org/mongojs
+32 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=connect ETIMEDOUT
+33 info trying registry request attempt 3 at 20:31:13
+34 http GET https://registry.npmjs.org/mongojs
+35 silly lockFile 9d373183-mongojs mongojs@
+36 silly lockFile 9d373183-mongojs mongojs@
+37 error network tunneling socket could not be established, cause=connect ETIMEDOUT
+37 error network This is most likely not a problem with npm itself
+37 error network and is related to network connectivity.
+37 error network In most cases you are behind a proxy or have bad network settings.
+37 error network
+37 error network If you are behind a proxy, please make sure that the
+37 error network 'proxy' config is set properly.  See: 'npm help config'
+38 error System Linux 3.13.0-61-generic
+39 error command "/usr/bin/node" "/usr/bin/npm" "install" "mongojs" "--save"
+40 error cwd /home/eduardo/workspace/nodejs/curso_brq
+41 error node -v v0.10.37
+42 error npm -v 1.4.28
+43 error code ECONNRESET
+44 verbose exit [ 1, true ]
