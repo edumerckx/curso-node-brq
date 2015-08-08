@@ -1,2 +1,4 @@
 param - identifica recurso
 query - filtro dados para determinado recurso
+
+istanbul cover node_modules/mocha/bin/_mocha -- -R spec

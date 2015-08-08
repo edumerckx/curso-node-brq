@@ -3,12 +3,10 @@ var model = require('../models/DragonModel');
 var DragonController = {};
 
 DragonController.getAll = function(req, res) {
-  // res.send('show all dragons');
+  var limit = req.query.limit || 50;
+  var skip = req.query.skip || 0;
 
-  var limit = req.query.limit || 10;
-  var skip = req.query.skip || 2;
-
-  model.find({}, {limit: 2, skip: 1}, function(err, data) {
+  model.find({}, {limit: limit, skip: skip}, function(err, data) {
     if (err) {
       res.json({err: 'Deu erro...'});
       console.log(err);
@@ -26,18 +24,33 @@ DragonController.getOne = function(req, res) {
 };
 
 DragonController.create = function(req, res) {
-  console.log(req.body);
-  res.send('cria dragão');
+  model.create(req.body, function(err, data, next) {
+    if (err) {
+      return next(err);
+    }
+    res.json(data);
+  });
 };
 
 DragonController.update = function(req, res) {
   var _id = req.params._id;
-  res.send('atualiza dragão ' + _id);
+  model.update(_id, req.body, function(err, data, next) {
+    if (err) {
+      return next(err);
+      res.status(500).send(err);
+    }
+    res.json(data);
+  });
 };
 
 DragonController.delete = function(req, res) {
-  console.log(req.body);
-  res.send('cria dragão');
+  var _id = req.params._id;
+  model.delete(_id, function(err, data, next) {
+    if (err) {
+      return next(err);
+    }
+    res.json(data);
+  });
 };
 
 module.exports = DragonController;

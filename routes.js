@@ -15,6 +15,6 @@ router.get('/dragons', controller.getAll);
 router.get('/dragons/:_id', controller.getOne);
 router.post('/dragons', controller.create);
 router.put('/dragons/:_id', controller.update);
-router.delete('/dragons', controller.delete);
+router.delete('/dragons/:_id', controller.delete);
 
 module.exports = router;

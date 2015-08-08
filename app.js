@@ -14,6 +14,7 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+/* istanbul ignore next */
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.send(err.message);
@@ -21,6 +22,9 @@ app.use(function(err, req, res, next) {
   console.log(err.stack);
 });
 
+/* istanbul ignore next */
 app.listen(3000, function() {
   console.log('bagaça rodando...');
 });
+
+module.exports = app;
