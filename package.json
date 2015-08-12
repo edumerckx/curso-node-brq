@@ -4,17 +4,20 @@
   "description": "Curso de Node.js BRQ",
   "main": "app.js",
   "dependencies": {
+    "bluebird": "^2.9.34",
     "body-parser": "^1.13.2",
     "config": "^1.15.0",
+    "expect.js": "^0.3.1",
     "express": "^4.13.1",
-    "mongojs": "^1.2.1"
+    "mongojs": "^0.18.0",
+    "swig": "^1.4.2"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
     "supertest": "^1.0.1"
   },
   "scripts": {
-    "start": "export NODE_ENV=development && node app.js",
+    "start": "export NODE_ENV=development && node bin/www",
     "test": "export NODE_ENV=test && mocha"
   },
   "author": "",

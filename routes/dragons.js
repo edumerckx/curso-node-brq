@@ -1,15 +1,5 @@
 var router = require('express').Router();
-var controller = require('./controllers/DragonController');
-
-router.get('/', function(req, res) {
-  console.log(req.headers);
-
-  if (req.headers.accept === 'text/plain') {
-    res.send('hello world');
-  } else {
-    res.json({msg: 'hello world'});
-  }
-});
+var controller = require('../controllers/DragonController');
 
 router.get('/dragons', controller.getAll);
 router.get('/dragons/:_id', controller.getOne);

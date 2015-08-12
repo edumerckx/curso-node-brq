@@ -2,9 +2,23 @@ var express = require('express');
 var app = express();
 var routes = require('./routes');
 var bodyParser = require('body-parser');
+var swig = require('swig');
+var path = require('path');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'views'));
+app.engine('html', swig.renderFile);
+
+app.use(function(req, res, next) {
+  if (req.url === '/favicon.ico') {
+    res.writeHead(200, { 'Content-Type': 'image/x-icon'});
+    return res.send('');
+  }
+  next();
+});
 
 app.use('/', routes);
 
@@ -20,11 +34,6 @@ app.use(function(err, req, res, next) {
   res.send(err.message);
 
   console.log(err.stack);
-});
-
-/* istanbul ignore next */
-app.listen(3000, function() {
-  console.log('bagaça rodando...');
 });
 
 module.exports = app;

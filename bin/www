@@ -1,0 +1,24 @@
+var app = require('../app');
+var cluster = require('cluster');
+var numCPUs = require('os').cpus().length;
+
+if (cluster.isMaster) {
+  for (var i = 0; i < numCPUs; i++) {
+    var worker = cluster.fork();
+    worker.on('error', function(code, signal) {
+      console.log(code, signal);
+    })
+  }
+  cluster.on('exit', function(err) {
+    var newWorker = cluster.fork();
+    newWorker.on('error', function(code, signal) {
+      console.log(code, signal);
+    });
+    console.log('Novo worker criado');
+  });
+} else {
+  app.listen(3000, function() {
+
+    console.log('bagaça rodando...');
+  });
+}
